@@ -16,8 +16,3 @@ h1 {
 p {
     font-size: 20px;
 }
-
-#clue {
-    position: fixed;
-    bottom: -20px;
-}
