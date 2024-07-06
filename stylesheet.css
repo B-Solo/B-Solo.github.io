@@ -1,7 +1,10 @@
-main{
-    color:aqua
+* {
+    background-color: black;
+    color: white;
+    text-align:center;
 }
 
-p{
-    color:red
+header {
+    position:sticky;
+    top:0;
 }
