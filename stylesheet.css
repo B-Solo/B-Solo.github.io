@@ -14,5 +14,10 @@ h1 {
 }
 
 p {
-    font-size: 40px;
+    font-size: 30px;
+    margin: 20px
+}
+
+.clue {
+    font-style: italic;
 }
