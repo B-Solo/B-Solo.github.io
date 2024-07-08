@@ -13,7 +13,6 @@
         document.addEventListener('DOMContentLoaded', (event) => {
 
         function handleDragStart(e) {
-            this.style.opacity = '0.4';
             dragSrcEl = this;
 
             e.dataTransfer.effectAllowed = 'move';
@@ -36,7 +35,6 @@
         }
 
         function handleDragEnd(e) {
-            this.style.opacity = '1';
 
             items.forEach(function (item) {
                 item.classList.remove('over');
@@ -75,8 +73,11 @@
     </header>
     
     <div class="container">
-        <div draggable="true" class="box"><img src="SW.jpg" alt="A picture of an evil black cloacked figure and a girl in a yellow dress holding an apple."> </div>
-        <div draggable="true" class="box"><img src="BF.jpg" alt="A picture of a crazy man in a grey beard and a boy in a cowboy hat."></div>
+        <div draggable="true" class="box"><img src="SW.jpg" alt="An evil black cloacked figure and a girl in a yellow dress holding an apple."> </div>
+        <br>
+        <div draggable="true" class="box"><img src="BF.jpg" alt="A crazy man in a grey beard and a girl in a cow-print hat."></div>
+        <br>
+        <div draggable="true" class="box"><img src="BGO1.png" alt="A group of 5 children wearing bright clothing."></div>
       </div>
     
 </body>
