@@ -13,6 +13,7 @@
         document.addEventListener('DOMContentLoaded', (event) => {
 
         function handleDragStart(e) {
+            e.stopPropagation(); // stops the browser from redirecting.
             dragSrcEl = this;
 
             e.dataTransfer.effectAllowed = 'move';
@@ -27,6 +28,7 @@
         }
 
         function handleDragEnter(e) {
+            e.stopPropagation(); // stops the browser from redirecting.
             this.classList.add('over');
         }
 
