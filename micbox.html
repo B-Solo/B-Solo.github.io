@@ -37,7 +37,7 @@
         }
 
         function handleDragEnd(e) {
-
+            e.stopPropagation(); // stops the browser from redirecting.
             items.forEach(function (item) {
                 item.classList.remove('over');
             });
