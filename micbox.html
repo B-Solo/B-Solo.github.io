@@ -10,19 +10,59 @@
 
 
     <script>
-        function allowDrop(ev) {
-          ev.preventDefault();
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+        function handleDragStart(e) {
+            this.style.opacity = '0.4';
+            dragSrcEl = this;
+
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.innerHTML);
         }
+
         
-        function drag(ev) {
-          ev.dataTransfer.setData("text", ev.target.id);
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            return false;
         }
-        
-        function drop(ev) {
-          ev.preventDefault();
-          var data = ev.dataTransfer.getData("text");
-          ev.target.appendChild(document.getElementById(data));
+
+        function handleDragEnter(e) {
+            this.classList.add('over');
         }
+
+        function handleDragLeave(e) {
+            this.classList.remove('over');
+        }
+
+        function handleDragEnd(e) {
+            this.style.opacity = '1';
+
+            items.forEach(function (item) {
+                item.classList.remove('over');
+            });
+        }
+
+        function handleDrop(e) {
+            e.stopPropagation(); // stops the browser from redirecting.
+            if (dragSrcEl !== this) {
+                dragSrcEl.innerHTML = this.innerHTML;
+                this.innerHTML = e.dataTransfer.getData('text/html');
+            }
+
+            return false;
+        }
+
+        let items = document.querySelectorAll('.container .box');
+        items.forEach(function(item) {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('drop', handleDrop);
+        });
+        });
     </script>
 
 
@@ -34,39 +74,11 @@
         <hr>
     </header>
     
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <p id="drag1" draggable="true" ondragstart="drag(event)">Test</p>
-    <br>
-    <p id="drag2" draggable="true" ondragstart="drag(event)">Test2</p>
-
-    <p><a href="https://web.dev/articles/drag-and-drop#:~:text=To%20make%20an%20object%20draggable,any%20markup%20on%20your%20page.&text=Here%27s%20the%20CSS%20for%20the,is%20the%20cursor%3A%20move%20property">test</a>.</p>
+    <div class="container">
+        <div draggable="true" class="box">A</div>
+        <div draggable="true" class="box">B</div>
+        <div draggable="true" class="box">C</div>
+      </div>
     
 </body>
 
