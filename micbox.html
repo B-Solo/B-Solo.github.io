@@ -13,7 +13,6 @@
         document.addEventListener('DOMContentLoaded', (event) => {
 
         function handleDragStart(e) {
-            e.preventDefault();
             e.stopPropagation(); // stops the browser from redirecting.
             dragSrcEl = this;
 
