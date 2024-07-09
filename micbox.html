@@ -9,65 +9,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
 
-        function handleDragStart(e) {
-            e.stopPropagation(); // stops the browser from redirecting.
-            dragSrcEl = this;
-
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', this.innerHTML);
-        }
-
-        
-
-        function handleDragOver(e) {
-            e.preventDefault();
-            return false;
-        }
-
-        function handleDragEnter(e) {
-            e.preventDefault();
-            e.stopPropagation(); // stops the browser from redirecting.
-            this.classList.add('over');
-        }
-
-        function handleDragLeave(e) {
-            e.preventDefault();
-            this.classList.remove('over');
-        }
-
-        function handleDragEnd(e) {
-            e.preventDefault();
-            e.stopPropagation(); // stops the browser from redirecting.
-            items.forEach(function (item) {
-                item.classList.remove('over');
-            });
-        }
-
-        function handleDrop(e) {
-            e.preventDefault();
-            e.stopPropagation(); // stops the browser from redirecting.
-            if (dragSrcEl !== this) {
-                dragSrcEl.innerHTML = this.innerHTML;
-                this.innerHTML = e.dataTransfer.getData('text/html');
-            }
-
-            return false;
-        }
-
-        let items = document.querySelectorAll('.container .box');
-        items.forEach(function(item) {
-        item.addEventListener('dragstart', handleDragStart);
-        item.addEventListener('dragover', handleDragOver);
-        item.addEventListener('dragenter', handleDragEnter);
-        item.addEventListener('dragleave', handleDragLeave);
-        item.addEventListener('dragend', handleDragEnd);
-        item.addEventListener('drop', handleDrop);
-        });
-        });
-    </script>
 
 
 </head>
@@ -79,13 +21,17 @@
     </header>
     
     <div class="container">
-        <div draggable="true" class="box"><img src="SW.jpg" alt="An evil black cloacked figure and a girl in a yellow dress holding an apple."> </div>
+        <div class="box"><img src="SW.jpg" alt="An evil black cloacked figure and a girl in a yellow dress holding an apple."><p class="keyword">A</p></div>
         <br>
-        <div draggable="true" class="box"><img src="BF.jpg" alt="A crazy man in a grey beard and a girl in a cow-print hat."></div>
+        <div class="box"><img src="BF.jpg" alt="A crazy man in a grey beard and a girl in a cow-print hat."><p class="keyword">B</p></div>
         <br>
-        <div draggable="true" class="box"><img src="BGO1.png" alt="A group of 5 children wearing bright clothing."></div>
+        <div class="box"><img src="BGO1.png" alt="A group of 5 children wearing bright clothing."><p class="keyword">C</p></div>
       </div>
     
 </body>
 
 </html> 
+
+<!-- U N D E R T H E C H A I R I N T H E P I T
+
+     1 2 3 4 5 6 7 8 9 101112131415161718192021

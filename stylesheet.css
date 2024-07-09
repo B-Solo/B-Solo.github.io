@@ -43,10 +43,15 @@ td {
     border: 3px solid #666;
     border-radius: .5em;
     padding: 10px;
-    cursor: move;
   }
 
   img{
     width: 500px;
     height: 500px;
   }
+
+
+  .keyword {
+    text-align: right;
+    vertical-align: bottom;
+}
