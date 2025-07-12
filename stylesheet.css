@@ -54,6 +54,83 @@ body::before {
   );
   animation: swirl 10s linear infinite;
   opacity: 0.6;
-  filter: saturate(2);
+  filter: blur(10px) saturate(2);
   z-index: -2;
-  transfor
+  transform-origin: center;
+}
+
+/* Optional Second Layer - Adds Dynamic Depth */
+body::after {
+  content: "";
+  position: fixed;
+  top: -60%;
+  left: -60%;
+  width: 260%;
+  height: 260%;
+  background: repeating-conic-gradient(
+    from 45deg,
+    #00ffff 0deg 30deg,
+    #ff00ff 30deg 60deg,
+    #00ff00 60deg 90deg,
+    #ff4500 90deg 120deg,
+    #1e90ff 120deg 150deg,
+    #ff1493 150deg 180deg,
+    #00ffff 180deg 210deg
+  );
+  animation: swirlReverse 15s linear infinite;
+  opacity: 0.4;
+  filter: blur(8px) saturate(2);
+  z-index: -3;
+  transform-origin: center;
+}
+
+/* Animation Keyframes */
+@keyframes swirl {
+  0% { transform: rotate(0deg) scale(1.5); }
+  100% { transform: rotate(360deg) scale(1.5); }
+}
+@keyframes swirlReverse {
+  0% { transform: rotate(360deg) scale(1.3); }
+  100% { transform: rotate(0deg) scale(1.3); }
+}
+
+/* Main Content Area */
+.container {
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(255, 105, 180, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography */
+h1, h2, h3 {
+  text-align: center;
+  color: #e600ac;
+  text-shadow: 1px 1px 3px #fff;
+}
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Buttons */
+button {
+  background-color: #00ccff;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #ff00ff;
+  transform: scale(1.05);
+}
+
