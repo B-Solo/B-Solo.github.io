@@ -6,18 +6,6 @@ header {
 .clue {
     font-style: italic;
 }
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-    font-style: italic;
-    text-align: center;
-}
-
-td {
-    height: 20px;
-    width: 40px;
-}
   
   .box {
     border: 3px solid #666;
@@ -35,112 +23,37 @@ td {
     text-align: center;
 }
 
-/* Global Reset and Base Styles */
+/* Reset and Base */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #fffdf0;
   overflow: hidden;
-  background-color: #fffbe0;
 }
 
-/* Swirl Effect Background Layer */
+/* Swirl Background - Main Layer */
 body::before {
   content: "";
   position: fixed;
   top: -50%;
   left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
+  width: 250%;
+  height: 250%;
+  background: repeating-conic-gradient(
     from 0deg,
-    #ff0000,
-    #ffa500,
-    #ffff00,
-    #00ff00,
-    #00ffff,
-    #0000ff,
-    #8a2be2,
-    #ff69b4,
-    #ff0000
+    #ff0000 0deg 30deg,
+    #ffa500 30deg 60deg,
+    #ffff00 60deg 90deg,
+    #00ff00 90deg 120deg,
+    #00ffff 120deg 150deg,
+    #0000ff 150deg 180deg,
+    #8a2be2 180deg 210deg,
+    #ff69b4 210deg 240deg,
+    #ff0000 240deg 270deg
   );
-  animation: swirl 20s linear infinite;
+  animation: swirl 10s linear infinite;
+  opacity: 0.6;
+  filter: blur(10px) saturate(2);
   z-index: -2;
-  opacity: 0.25;
-  filter: blur(40px);
-}
-
-/* Optional Second Layer for Depth */
-body::after {
-  content: "";
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    from 90deg,
-    #00ffff,
-    #ff00ff,
-    #ffff00,
-    #00ff00,
-    #ff4500,
-    #1e90ff,
-    #ff69b4,
-    #00ffff
-  );
-  animation: swirlReverse 30s linear infinite;
-  z-index: -3;
-  opacity: 0.2;
-  filter: blur(60px);
-}
-
-/* Swirl Animation */
-@keyframes swirl {
-  0% { transform: rotate(0deg) scale(1.2); }
-  100% { transform: rotate(360deg) scale(1.2); }
-}
-@keyframes swirlReverse {
-  0% { transform: rotate(360deg) scale(1.3); }
-  100% { transform: rotate(0deg) scale(1.3); }
-}
-
-/* Main Content Container */
-.container {
-  max-width: 800px;
-  margin: 5rem auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 0 40px rgba(255, 182, 193, 0.5);
-  position: relative;
-  z-index: 1;
-}
-
-/* Typography */
-h1, h2, h3 {
-  text-align: center;
-  color: #ff1493;
-  text-shadow: 1px 1px 2px #fff;
-}
-p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Buttons */
-button {
-  background-color: #00ccff;
-  border: none;
-  color: white;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-button:hover {
-  background-color: #ff00ff;
-}
-
+  transfor
