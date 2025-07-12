@@ -1,21 +1,6 @@
-* {
-    background-color: black;
-    color: white;
-    text-align:center;
-}
-
 header {
     position:sticky;
     top:0;
-}
-
-h1 {
-    font-size: 80px;
-}
-
-p {
-    font-size: 30px;
-    margin: 20px
 }
 
 .clue {
@@ -33,11 +18,6 @@ td {
     height: 20px;
     width: 40px;
 }
-
-.container {
-    display: grid;
-    gap: 10px;
-  }
   
   .box {
     border: 3px solid #666;
@@ -53,4 +33,87 @@ td {
 
   .keyword {
     text-align: center;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: radial-gradient(circle at top left, #ffe600, #ff6ec7),
+              radial-gradient(circle at bottom right, #00fff7, #ff9a00);
+  background-blend-mode: screen;
+  background-size: cover;
+  color: #202020;
+  overflow-x: hidden;
+}
+
+/* Swirl Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, 
+    #ff0000 0deg 45deg, 
+    #ffa500 45deg 90deg,
+    #ffff00 90deg 135deg, 
+    #00ff00 135deg 180deg,
+    #00ffff 180deg 225deg, 
+    #0000ff 225deg 270deg,
+    #8a2be2 270deg 315deg, 
+    #ff69b4 315deg 360deg);
+  opacity: 0.3;
+  transform: rotate(20deg);
+  z-index: -1;
+}
+
+/* Content Container */
+.container {
+  padding: 3rem;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+}
+
+/* Headings */
+h1, h2, h3 {
+  text-align: center;
+  color: #ff1493;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #ff4500;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  background-color: #00ccff;
+  border: none;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #ff00ff;
 }
